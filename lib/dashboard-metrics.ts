@@ -6,9 +6,10 @@ export function metricForPin(pin:string,value:unknown):Metric{
   const m=value&&typeof value==='object'?value as Record<string,unknown>:{};
   const label=typeof m.label==='string'?m.label.slice(0,60):pin.toUpperCase();
   const unit=typeof m.unit==='string'?m.unit.slice(0,12):'';
+  const defaults:Record<string,string>={v0:'Temperature',v5:'Defrost duration',v8:'Defrost status'};
   return {
-    label:pin==='v0'&&(!label.trim()||label.toUpperCase()==='V0')?'Temperature':label,
-    unit:pin==='v0'&&!unit.trim()?'°F':unit,
+    label:defaults[pin]&&(!label.trim()||label.toUpperCase()===pin.toUpperCase())?defaults[pin]:label,
+    unit:!unit.trim()?(pin==='v0'?'°F':pin==='v5'?'min':unit):unit,
     visible:typeof m.visible==='boolean'?m.visible:true,
   };
 }

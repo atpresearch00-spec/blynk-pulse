@@ -28,6 +28,18 @@ New saved connections start at a 5-second interval; the owner can select 5, 10, 
 
 V0 defaults to Temperature in °F when its label/unit are absent or generic. Explicit owner settings remain editable. Live values are not numerically converted; the firmware's source unit must be established before any conversion. The illustrative demo uses Fahrenheit.
 
+V6, V7 and V8 display 0 as ON and 1 as OFF, without changing the raw chart or CSV values. The Overview shows up to nine visible cards and excludes D15.
+
+## Defrost timer and cycle log
+
+V8 controls the Overview defrost timer: ON (0) starts counting from zero and OFF (1) stops it. V5 supplies a target duration in **minutes**. The target is captured at the start of each cycle. The compact V8 Overview card shows an elapsed clock, ON/OFF status and a small ON-observation time note. It continues beyond the target until V8 is OFF and starts again for each newly observed cycle. The V5 target is retained in the cycle log. A cycle first seen already ON is marked as a partial start.
+
+Migration `0003_defrost_cycles.sql` records transitions in SQLite triggers, atomically with accepted shared-snapshot writes. Logs are isolated by saved device and survive reloads and selection changes. Duplicate readings, retries, same-fetch metadata edits and rejected stale writes cannot create duplicate cycles. Snapshot and log writes either both succeed or both roll back. Every cycle is retained; public responses return the latest 50. Public viewers cannot create or modify readings or log entries.
+
+Times are Blynk **fetch observation times**, not device measurement or exact transition times. Logging still requires a connected, visible, unpaused owner page; cycles entirely between observations cannot be recovered. Offline or invalid V8 readings do not imply OFF. Interrupted readings and gaps longer than the existing freshness threshold mark a cycle as uncertain. The displayed live elapsed time extrapolates from the observed start while readings are fresh; once unconfirmed it shows only the span through the last confirmed ON reading. An interrupted ON span may contain unobserved OFF/ON changes and is labeled accordingly.
+
+The log is stored in the live database and is excluded from source backups. A separate restoration starts an empty cycle log. Apply all migrations before deploying source that reads the tracker tables. Controlled tests use real SQLite migrations and actual route modules with simulated platform identity and upstream readings; they do not establish live hardware timing or deployed-browser behavior.
+
 Charts and CSV exports contain page-observed online samples, retained in memory up to 1,440 points and displayed over windows of at most two hours. CSV headers include configured units. Repeated snapshots are not sampled again, old points expire, and exports retain numeric precision and escape formula-like text. No Blynk history is imported. A clearly marked sample preview appears before shared data is available.
 
 `fetchedAt` is assigned after the separate project, connection-status and pin reads complete; they are not an atomic sensor measurement. Physical measurement and Blynk storage times are unknown. `publishedAt` is assigned when the server accepts a snapshot for persistence; reads become available after the database operation succeeds. New fetch times do not prove that the sensor measured again.

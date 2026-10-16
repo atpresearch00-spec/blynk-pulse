@@ -9,7 +9,7 @@ export function numeric(value:unknown):number|null{
 }
 export function display(value:unknown,pin?:string){
   const n=numeric(value);
-  if(pin==='v6'||pin==='v7'){
+  if(pin==='v6'||pin==='v7'||pin==='v8'){
     if(n===0)return 'ON';
     if(n===1)return 'OFF';
   }

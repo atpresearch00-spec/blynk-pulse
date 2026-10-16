@@ -1,4 +1,5 @@
 import {metricForPin} from './dashboard-metrics';
+import {defrostSignal,defrostTargetSeconds} from './defrost-data';
 export function normalizeSnapshot(input:unknown){
   if(!input||typeof input!=='object')throw new Error('Invalid snapshot');
   const data=input as Record<string,unknown>;
@@ -9,5 +10,5 @@ export function normalizeSnapshot(input:unknown){
   const sourceId=typeof data.sourceId==='string'&&/^[a-zA-Z0-9_-]{1,80}$/.test(data.sourceId)?data.sourceId:null;
   const publicationVersion=Number.isSafeInteger(data.publicationVersion)&&Number(data.publicationVersion)>=0?Number(data.publicationVersion):0;
   const refreshSeconds=[5,10,30,60].includes(Number(data.refreshSeconds))?Number(data.refreshSeconds):5;
-  return {values,metrics,sourceId,publicationVersion,refreshSeconds,device:typeof data.device==='string'?data.device.slice(0,60):'Blynk device',online:data.online,fetchedAt:data.fetchedAt};
+  return {values,metrics,sourceId,publicationVersion,refreshSeconds,device:typeof data.device==='string'?data.device.slice(0,60):'Blynk device',online:data.online,fetchedAt:data.fetchedAt,defrostSignal:defrostSignal(values,data.online),defrostTargetSeconds:defrostTargetSeconds(values)};
 }

@@ -1,0 +1,55 @@
+{
+  "verified_at": "2026-10-16T05:47:04.022199+00:00",
+  "stage": "unpublished draft awaiting preview approval",
+  "v5_unit": "minutes",
+  "timer": "count up while V8=0; stop on V8=1; retain per-device cycles",
+  "typecheck": "passed",
+  "controlled_checks": {
+    "passed": 48,
+    "failed": 0
+  },
+  "production_build": "passed",
+  "local_d1": {
+    "all_migrations_executed": true,
+    "expected_cycle": {
+      "start_observed_at": 6000,
+      "end_observed_at": 26000,
+      "target_seconds": 120,
+      "partial_start": 0,
+      "has_gaps": 0
+    },
+    "actual": {
+      "results": [
+        {
+          "start_observed_at": 6000,
+          "end_observed_at": 26000,
+          "target_seconds": 120,
+          "partial_start": 0,
+          "has_gaps": 0
+        }
+      ],
+      "success": true,
+      "meta": {
+        "duration": 2
+      }
+    }
+  },
+  "react_component_server_render": "verified with controlled clocks",
+  "interactive_preview": {
+    "uses_actual_dashboard": true,
+    "readings_and_logs": "simulated",
+    "external_connections": false
+  },
+  "real_browser_verified": false,
+  "live_hardware_verified": false,
+  "production_database_modified": false,
+  "site_published": false,
+  "github_updated": false,
+  "limitations": [
+    "Only transitions observed during owner-driven polling can be recorded.",
+    "Cycle endpoints are Blynk fetch observation times; exact hardware transition and measurement times are unknown.",
+    "Interrupted ON spans may contain unobserved state changes and are marked.",
+    "All cycles are retained in the database; API responses include the latest 50. The compact card displays the active or most recent cycle."
+  ],
+  "overview_display": "Compact V8 card with elapsed clock, ON/OFF status and ON-observation time; detailed timer panel removed."
+}
