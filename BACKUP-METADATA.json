@@ -1,0 +1,7 @@
+{
+  "source_commit": "5e09bfda292bd23a5f08ec3ebdcc1c531f0c7263",
+  "site_identity_removed": true,
+  "database_contents_included": false,
+  "device_credentials_included": false,
+  "restore_instructions": "Read START-HERE.md and RESTORE-WITH-CHATGPT.md. Create a separate Site; do not overwrite the original."
+}

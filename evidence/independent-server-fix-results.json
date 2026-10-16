@@ -1,0 +1,160 @@
+{
+  "baseline": false,
+  "results": [
+    {
+      "name": "Anonymous and non-owner cannot publish or connect",
+      "kind": "route integration / simulated identity",
+      "status": "passed"
+    },
+    {
+      "name": "Owner writes and anonymous reads through actual SQLite migration",
+      "kind": "route integration / SQLite adapter",
+      "status": "passed"
+    },
+    {
+      "name": "Cross-origin and malformed owner writes are rejected",
+      "kind": "route integration",
+      "status": "passed"
+    },
+    {
+      "name": "Out-of-order snapshots cannot replace newer readings",
+      "kind": "route integration / SQLite adapter",
+      "status": "passed"
+    },
+    {
+      "name": "Equal-fetch metadata revisions cannot regress",
+      "kind": "route integration / SQLite adapter",
+      "status": "passed"
+    },
+    {
+      "name": "Public snapshot excludes credentials and separates publication time",
+      "kind": "route integration",
+      "status": "passed"
+    },
+    {
+      "name": "Controlled independent-server readings survive proxy and database unchanged",
+      "kind": "route integration / mocked upstream HTTP",
+      "status": "passed"
+    },
+    {
+      "name": "Invalid token, rate limit, offline, and forbidden hosts",
+      "kind": "upstream HTTP fixture / unit",
+      "status": "passed"
+    },
+    {
+      "name": "Outdated Cloud form is rejected before sending any token upstream",
+      "kind": "route integration / mocked upstream HTTP",
+      "status": "passed"
+    },
+    {
+      "name": "Network failure response and diagnostics never expose token-bearing URLs",
+      "kind": "route integration / mocked network error",
+      "status": "passed"
+    },
+    {
+      "name": "Independent server address is exact and does not create an arbitrary proxy",
+      "kind": "legacy adapter validation",
+      "status": "passed"
+    },
+    {
+      "name": "Legacy project pin discovery and read-only values exclude project secrets",
+      "kind": "legacy upstream fixture",
+      "status": "passed"
+    },
+    {
+      "name": "Legacy invalid token and non-JSON responses give safe actionable errors",
+      "kind": "legacy upstream fixture",
+      "status": "passed"
+    },
+    {
+      "name": "Runtime-compatible manual redirects never follow a token-bearing URL",
+      "kind": "legacy upstream fixture",
+      "status": "passed"
+    },
+    {
+      "name": "Owner form sends only the configured independent server and has no Cloud labels",
+      "kind": "React lifecycle simulation",
+      "status": "passed"
+    },
+    {
+      "name": "Chart samples expire while repeated snapshot and pause leave data unchanged",
+      "kind": "React lifecycle simulation / fixed clock",
+      "status": "passed"
+    },
+    {
+      "name": "Public history resets across device connection sessions",
+      "kind": "React lifecycle simulation",
+      "status": "passed"
+    },
+    {
+      "name": "Public snapshot is not resampled when fetch timestamp repeats",
+      "kind": "React lifecycle simulation",
+      "status": "passed"
+    },
+    {
+      "name": "Owner reload displays the saved shared snapshot without credentials",
+      "kind": "React lifecycle simulation",
+      "status": "passed"
+    },
+    {
+      "name": "Small numeric readings do not display as zero",
+      "kind": "React lifecycle simulation",
+      "status": "passed"
+    },
+    {
+      "name": "Negative numeric CSV values remain numeric; formula text is escaped",
+      "kind": "React lifecycle simulation / CSV fixture",
+      "status": "passed"
+    },
+    {
+      "name": "Paused and hidden owner tabs do not poll; resume does",
+      "kind": "React lifecycle simulation",
+      "status": "passed"
+    },
+    {
+      "name": "Demo latest card matches latest chart value",
+      "kind": "React lifecycle simulation",
+      "status": "passed"
+    },
+    {
+      "name": "Offline readings remain visible but do not become chart samples",
+      "kind": "React lifecycle simulation",
+      "status": "passed"
+    },
+    {
+      "name": "Server failure retains previous values and gives an error",
+      "kind": "React lifecycle simulation",
+      "status": "passed"
+    },
+    {
+      "name": "Disconnect discards a delayed server response and reconnect starts new history",
+      "kind": "React lifecycle simulation",
+      "status": "passed"
+    },
+    {
+      "name": "Viewer marks closed-owner snapshot stale and honors 60-second refresh",
+      "kind": "React lifecycle simulation",
+      "status": "passed"
+    },
+    {
+      "name": "Overlapping public reads are serialized and older snapshots ignored",
+      "kind": "React lifecycle simulation",
+      "status": "passed"
+    },
+    {
+      "name": "Independent min/mean/max and inclusive UTC window boundaries",
+      "kind": "pure data / independent expected values",
+      "status": "passed"
+    },
+    {
+      "name": "DST boundaries use elapsed UTC time in New York and UTC",
+      "kind": "pure data / timezone boundary",
+      "status": "passed"
+    },
+    {
+      "name": "Numeric typing, precision, CSV quoting and sample cap",
+      "kind": "pure data / independent expected values",
+      "status": "passed"
+    }
+  ]
+}

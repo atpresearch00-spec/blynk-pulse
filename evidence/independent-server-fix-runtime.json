@@ -1,0 +1,27 @@
+{
+  "checked_at_utc": "2026-10-16T01:41:06Z",
+  "scope": "Separate owner-private deployed test site; fixed invalid all-zero token; no real credentials",
+  "before": {
+    "redirect": "error",
+    "result": "TypeError: Invalid redirect value, must be one of follow or manual",
+    "network_request_sent": false
+  },
+  "after": {
+    "redirect": "manual",
+    "results": [
+      {
+        "path": "project",
+        "status": 400,
+        "body": "Invalid token.",
+        "elapsedMs": 168
+      },
+      {
+        "path": "isHardwareConnected",
+        "status": 400,
+        "body": "Invalid token.",
+        "elapsedMs": 65
+      }
+    ]
+  },
+  "real_device_readings_verified": false
+}

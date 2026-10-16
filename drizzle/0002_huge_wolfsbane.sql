@@ -1,0 +1,1 @@
+ALTER TABLE `device_selection` ADD `auto_resume` integer DEFAULT true NOT NULL;

@@ -1,0 +1,22 @@
+{
+  "clock": 1792015200000,
+  "cloud": {
+    "getAll": {"v0": -12.75, "v1": 0.000125, "v2": "standby", "v3": [1, 2], "v4": " =2+2", "d0": 1},
+    "isHardwareConnected": true
+  },
+  "metrics": {
+    "v0": {"label": "Temperature", "unit": "°C", "visible": true},
+    "v1": {"label": "Flow", "unit": "L/s", "visible": true},
+    "v2": {"label": "Mode", "unit": "", "visible": true}
+  },
+  "expected": {
+    "temperature": -12.75,
+    "flow": 0.000125,
+    "mode": "standby",
+    "sequence": [10, 20, 30],
+    "minimum": 10,
+    "average": 20,
+    "maximum": 30,
+    "authorization": {"anonymous": 403, "viewer": 403, "owner": 200}
+  }
+}

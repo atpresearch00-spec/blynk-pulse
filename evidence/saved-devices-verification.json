@@ -1,0 +1,16 @@
+{
+  "source_commit": "5e09bfda292bd23a5f08ec3ebdcc1c531f0c7263",
+  "controlled_checks_passed": 40,
+  "typescript_passed": true,
+  "production_build_passed": true,
+  "native_deployment_succeeded": true,
+  "production_tables_verified": [
+    "device_selection",
+    "saved_devices",
+    "shared_dashboard"
+  ],
+  "runtime_encryption_key_configured_as_secret": true,
+  "existing_shared_snapshot_table_preserved": true,
+  "real_browser_and_hardware_saved_token_workflow_verified": false,
+  "backup_excludes_database_and_runtime_key": true
+}

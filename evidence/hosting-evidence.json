@@ -1,0 +1,32 @@
+{
+  "original": {
+    "beforeVersion": 2,
+    "afterVersion": 3,
+    "sourceCommit": "6f777ae9544e9a45280e2e2cc90c2b048f506a2c",
+    "url": "https://akhil-blynk-pulse.brawnyfir8.chatgpt.site",
+    "accessBefore": "public",
+    "accessAfter": "public",
+    "additionalEditors": 0,
+    "databaseRowsBefore": 0,
+    "databaseRowsAfter": 0,
+    "deploymentStatus": "succeeded"
+  },
+  "restore": {
+    "url": "https://akhil-blynk-restore-audit.brawnyfir8.chatgpt.site",
+    "sourceCommit": "335d0047317f7e8ba6990a26b8ccaed46f0e2478",
+    "deploymentStatus": "succeeded",
+    "accessMode": "custom",
+    "roles": [
+      "owner"
+    ],
+    "additionalEditors": 0
+  },
+  "limits": {
+    "realDeviceAvailable": false,
+    "firmwareAvailable": false,
+    "rawLiveBlynkResponsesAvailable": false,
+    "browserAttempt": "Tab opening timed out without a page state",
+    "http": "Cloudflare returned HTTP 403 error code 1010 before application routes could be verified",
+    "identityTests": "Platform identity headers were simulated in route tests; hosting authentication boundary not verified"
+  }
+}
