@@ -7,8 +7,12 @@ export function numeric(value:unknown):number|null{
   }
   return null;
 }
-export function display(value:unknown){
+export function display(value:unknown,pin?:string){
   const n=numeric(value);
+  if(pin==='v6'||pin==='v7'){
+    if(n===0)return 'ON';
+    if(n===1)return 'OFF';
+  }
   if(n!==null)return n.toLocaleString(undefined,{maximumSignificantDigits:15});
   if(value===null||value===undefined)return '—';
   return typeof value==='object'?JSON.stringify(value):String(value);
