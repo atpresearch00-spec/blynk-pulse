@@ -82,7 +82,7 @@ export default function Dashboard({isOwner}:{isOwner:boolean}){
   function exportCSV(){const csv=buildCSV(filteredSamples,pins,p=>getMetric(p).label,p=>getMetric(p).unit);const blob=new Blob([csv],{type:'text/csv'});const a=document.createElement('a');a.href=URL.createObjectURL(blob);a.download=`pulse-${mode}-${new Date().toISOString().slice(0,10)}.csv`;a.click();URL.revokeObjectURL(a.href);setNotice(`${filteredSamples.length} ${mode==='demo'?'sample':'observed'} readings exported.`);}
   const filteredSamples=useMemo(()=>samplesInWindow(samples,range,now),[samples,range,now]);
   const chartValues=filteredSamples.map(s=>numeric(s.values[selected])).filter((n):n is number=>n!==null);
-  const activeCards=pins.filter(p=>getMetric(p).visible).slice(0,8);
+  const activeCards=pins.filter(p=>p!=='d15'&&getMetric(p).visible).slice(0,8);
   const status=mode==='demo'?'Sample data':error?'Connection issue':lastFetch&&now-lastFetch>Math.max(intervalSeconds*3,45)*1000?'Last shared reading':online?'Device online':'Device offline';
   const stale=!!lastFetch&&now-lastFetch>Math.max(intervalSeconds*3,45)*1000;
   const healthy=mode==='live'&&online&&!error&&!stale;
